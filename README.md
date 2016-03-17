@@ -1,7 +1,8 @@
 # PSZenoss
 ============
-A PowerShell Module for working with Zenoss
 
+A PowerShell Module for working with Zenoss
+<img class="alignnone wp-image-2172 size-large" src="https://foxdeploy.files.wordpress.com/2015/03/introtodsc.jpg?w=705" alt="IntroToDsc" width="705" height="154" />
 Installation
 ------------
  * Copy the "PSZenoss" folder into your module path. Note: You can find an
