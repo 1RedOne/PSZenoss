@@ -12,8 +12,8 @@ appropriate directory by running `$ENV:PSModulePath.Split(';')`.
  * Run `Import-Module PSZenoss` from your PowerShell command prompt.
  * If you're using PowerShell v3.0 or higher, you don't have to import the module on your own, it will automatically be done for you
 
- Usage
- -----
+Usage
+-----
  
  You can use this module to pull information about devices in Zenoss, see events, even create events.
  
