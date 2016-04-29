@@ -1,8 +1,10 @@
 # PSZenoss
 ============
 
-A PowerShell Module for working with Zenoss
+
 <img class="alignnone wp-image-2172 size-large" src="https://raw.githubusercontent.com/1RedOne/PSZenoss/master/img/Zenoss_logo_new.png"/>
+A PowerShell Module for working with Zenoss
+
 Installation
 ------------
  * Copy the "PSZenoss" folder into your module path. Note: You can find an
@@ -13,41 +15,71 @@ appropriate directory by running `$ENV:PSModulePath.Split(';')`.
  Usage
  -----
  
-###Connecting your Account###
-    Connect-ZenossInstance -ClientID Username -password ****** 
-    #Credentials persist in secure storage and are automatically imported when you use a cmdlet in this module.
+ You can use this module to pull information about devices in Zenoss, see events, even create events.
  
- Once connected, you can connect to any of the endpoints [listed in the Reddit API Documentation here.](https://www.reddit.com/dev/api)
+###Connecting to your Zenoss Instance###
+
+Every cmdlet in this module takes a parameter of `-URL` which should be the base url of your Zenoss Instance, like so http://zenoss:8080.  If you'd like to use this value globally across all cmdlets, you can use a global variable of $global:url = "http://zenoss:8080", to automatically provide this value for all cmdlets.
+
+There are many more endpoints available, we've only made cmdlets for the following.
+
+| Cmdlet        | Released      |
+| ------------- |:-------------:|
+| Get-ZenossDevice      | v0.6    |
+| Get-ZenossEvent | v0.6      | 
+| New-ZenossEvent | v1.0 |
+| Close-ZenossEvent      | v1.0 |
+| Update-ZenossEventLog | v1.0 |
+
+Using the scafolding we've provided, you can extend this module to any of Zenoss's other endpoints.  I'd recommend using the fan created documentation made by Pat Baker, [listed in the wonderful API Documentation here.](http://search.cpan.org/~patbaker/Zenoss-1.11/lib/Zenoss/Router/Events.pm#METHODS)
  
     Get-ZenossDevice
    
-    name               : 1RedOne
-    hide_from_robots   : False
-    gold_creddits      : 0
-    link_karma         : 2674
-    comment_karma      : 19080
-    over_18            : True
-    is_gold            : False
-    is_mod             : False
-    gold_expiration    : 
-    has_verified_email : True
-    inbox_count        : 2
+    
     Created Date       : 1/20/2010 6:44:21 PM
 
-... gets you information about your account including karma and account creation date
+... gets you information about your all devices in Zenoss
 
-####Links####
+####Get-ZenossEvent####
 
-**Most of these are out of date with the new Rest method, and will be revamped**
 
-    Get-ZenossEvent
+    Get-ZenossEvent -DeviceName CHDTW1T
+    count         : 4
+    firstTime     : 2016-03-22 10:06:40
+    severity      : 5
+    evid          : 005056a5-7c3e-9c9c-11e5-f03faec4b12c
+    eventClassKey : 
+    component     : @{url=; text=; uid=; uuid=}
+    summary       : Device is DOWN!
+    eventState    : New
+    device        : @{url=/zport/dmd/goto?guid=1f99f022-f0d3-4c75-90f2-a52fca708303; text=CHDTW1TST03.corpdev.contoso.com; uuid=1f99f022-f0d3-4c75-90f2-a52fca708303; 
+    id=/zport/dmd/Devices/Server/Microsoft/Windows/DEV TEST/devices/CHDTW1TST03.corpdev.contoso.com}
+    eventClass    : @{text=/Status/WinRM/Ping; uid=/zport/dmd/Events/Status/WinRM/Ping}
+    lastTime      : 2016-03-22 10:21:40
+    message       : Device is DOWN!
+    DeviceName    : CHDTW1TST03.corpdev.contoso.com
 
-... gets you a nicely formatted table of the current front page links.
+... gets you a listing of all of the events for a particular device in reverse chronological order
 
-  
-###To come###
+####Update-ZenossEventLog###
 
-* Making Posts
-* imgur uploads
-* Your suggestions?
-* Multiple Account Support
+    Update-ZenossEventLog -evid 005056a5-7c3e-9c9c-11e5-fcd8cbbdb0f1 -message "Updated with PowerShell!"
+   
+    >Operation completed
+ 
+...updates an event with new log text
+
+####New-ZenossEvent####
+
+     New-ZenossEvent -Summary "Test new event from PowerShell" -component "Test Component" -severity 5 -device cho3w5ap02.corpstage.contoso.com
+     Response: Created event, True
+
+     evid                                                            response
+     ----                                                            --------
+     005056a5-7c3e-a0c2-11e6-07d5d415b6aa                            True
+
+...creates a new event and replies back with the EVID.  Annoyingly enough, the Method for creating a new event does not actually reply with the evid of the event.  Instead, it replies back with a generic JSON receipt confirming the event was created.  Our code mitigates this by generating a unique ID when we create a Zenoss Event.
+
+###Example Scenario: Creating a Zenoss Event from a SCOM Alert###
+
+
