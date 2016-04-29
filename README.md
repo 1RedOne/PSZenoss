@@ -3,7 +3,7 @@
 
 
 <img class="alignnone wp-image-2172 size-large" src="https://raw.githubusercontent.com/1RedOne/PSZenoss/master/img/Zenoss_logo_new.png"/>
-A PowerShell Module for working with Zenoss
+###A PowerShell Module for working with Zenoss###
 
 Installation
 ------------
@@ -17,7 +17,7 @@ appropriate directory by running `$ENV:PSModulePath.Split(';')`.
  
  You can use this module to pull information about devices in Zenoss, see events, even create events.
  
- ###Connecting to your Zenoss Instance###
+###Connecting to your Zenoss Instance###
 
  Every cmdlet in this module takes a parameter of `-URL` which should be the base url of your Zenoss Instance, like so http://zenoss:8080.  If you'd like to use this value globally across all cmdlets, you can use a global variable of $global:url = "http://zenoss:8080", to automatically provide this value for all cmdlets.
 
@@ -33,7 +33,7 @@ appropriate directory by running `$ENV:PSModulePath.Split(';')`.
 
  Using the scaffolding we've provided, you can extend this module to any of Zenoss's other endpoints.  I'd recommend using the fan created documentation made by Pat Baker, [listed in the wonderful API Documentation here.](http://search.cpan.org/~patbaker/Zenoss-1.11/lib/Zenoss/Router/Events.pm#METHODS)
  
- ####Get-ZenossDevice####
+####Get-ZenossDevice####
     Get-ZenossDevice
    
     
@@ -41,7 +41,7 @@ appropriate directory by running `$ENV:PSModulePath.Split(';')`.
 
  ... gets you information about all your devices in Zenoss
 
- ####Get-ZenossEvent####
+####Get-ZenossEvent####
 
 
     Get-ZenossEvent -DeviceName CHDTW1T
@@ -62,7 +62,7 @@ appropriate directory by running `$ENV:PSModulePath.Split(';')`.
 
  ... gets you a listing of all of the events for a particular device in reverse chronological order
 
- ####Update-ZenossEventLog###
+####Update-ZenossEventLog###
 
     Update-ZenossEventLog -evid 005056a5-7c3e-9c9c-11e5-fcd8cbbdb0f1 -message "Updated with PowerShell!"
    
@@ -70,7 +70,7 @@ appropriate directory by running `$ENV:PSModulePath.Split(';')`.
  
  ...updates an event with new log text
 
- ####New-ZenossEvent####
+####New-ZenossEvent####
 
      New-ZenossEvent -Summary "Test new event from PowerShell" -component "Test Component" -severity 5 -device cho3w5ap02.corpstage.contoso.com
      Response: Created event, True
