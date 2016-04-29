@@ -17,11 +17,11 @@ appropriate directory by running `$ENV:PSModulePath.Split(';')`.
  
  You can use this module to pull information about devices in Zenoss, see events, even create events.
  
-###Connecting to your Zenoss Instance###
+ ###Connecting to your Zenoss Instance###
 
-Every cmdlet in this module takes a parameter of `-URL` which should be the base url of your Zenoss Instance, like so http://zenoss:8080.  If you'd like to use this value globally across all cmdlets, you can use a global variable of $global:url = "http://zenoss:8080", to automatically provide this value for all cmdlets.
+ Every cmdlet in this module takes a parameter of `-URL` which should be the base url of your Zenoss Instance, like so http://zenoss:8080.  If you'd like to use this value globally across all cmdlets, you can use a global variable of $global:url = "http://zenoss:8080", to automatically provide this value for all cmdlets.
 
-There are many more endpoints available, we've only made cmdlets for the following.
+ There are many more endpoints available, we've only made cmdlets for the following.
 
 | Cmdlet        | Released      |
 | ------------- |:-------------:|
@@ -31,16 +31,17 @@ There are many more endpoints available, we've only made cmdlets for the followi
 | Close-ZenossEvent      | v1.0 |
 | Update-ZenossEventLog | v1.0 |
 
-Using the scafolding we've provided, you can extend this module to any of Zenoss's other endpoints.  I'd recommend using the fan created documentation made by Pat Baker, [listed in the wonderful API Documentation here.](http://search.cpan.org/~patbaker/Zenoss-1.11/lib/Zenoss/Router/Events.pm#METHODS)
+ Using the scaffolding we've provided, you can extend this module to any of Zenoss's other endpoints.  I'd recommend using the fan created documentation made by Pat Baker, [listed in the wonderful API Documentation here.](http://search.cpan.org/~patbaker/Zenoss-1.11/lib/Zenoss/Router/Events.pm#METHODS)
  
+ ####Get-ZenossDevice####
     Get-ZenossDevice
    
     
     Created Date       : 1/20/2010 6:44:21 PM
 
-... gets you information about your all devices in Zenoss
+ ... gets you information about all your devices in Zenoss
 
-####Get-ZenossEvent####
+ ####Get-ZenossEvent####
 
 
     Get-ZenossEvent -DeviceName CHDTW1T
@@ -59,17 +60,17 @@ Using the scafolding we've provided, you can extend this module to any of Zenoss
     message       : Device is DOWN!
     DeviceName    : CHDTW1TST03.corpdev.contoso.com
 
-... gets you a listing of all of the events for a particular device in reverse chronological order
+ ... gets you a listing of all of the events for a particular device in reverse chronological order
 
-####Update-ZenossEventLog###
+ ####Update-ZenossEventLog###
 
     Update-ZenossEventLog -evid 005056a5-7c3e-9c9c-11e5-fcd8cbbdb0f1 -message "Updated with PowerShell!"
    
     >Operation completed
  
-...updates an event with new log text
+ ...updates an event with new log text
 
-####New-ZenossEvent####
+ ####New-ZenossEvent####
 
      New-ZenossEvent -Summary "Test new event from PowerShell" -component "Test Component" -severity 5 -device cho3w5ap02.corpstage.contoso.com
      Response: Created event, True
@@ -78,8 +79,8 @@ Using the scafolding we've provided, you can extend this module to any of Zenoss
      ----                                                            --------
      005056a5-7c3e-a0c2-11e6-07d5d415b6aa                            True
 
-...creates a new event and replies back with the EVID.  Annoyingly enough, the Method for creating a new event does not actually reply with the evid of the event.  Instead, it replies back with a generic JSON receipt confirming the event was created.  Our code mitigates this by generating a unique ID when we create a Zenoss Event.
+ ...creates a new event and replies back with the EVID.  Annoyingly enough, the Method for creating a new event does not actually reply with the evid of the event.  Instead, it replies back with a generic JSON receipt confirming the event was created.  Our code mitigates this by generating a unique ID when we create a Zenoss Event.
 
-###Example Scenario: Creating a Zenoss Event from a SCOM Alert###
+ ###Example Scenario: Creating a Zenoss Event from a SCOM Alert###
 
 
