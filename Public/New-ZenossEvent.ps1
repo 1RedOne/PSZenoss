@@ -39,7 +39,7 @@ Function New-ZenossEvent{[CmdletBinding()]
         $Summary,
 
         # Device to tag the event on to 
-        $device="cho3w5ap02.corpstage.contoso.com",
+        $device="CHDTW1TST03.corpdev.contoso.com",
         
         # The component name for the ticket
         $component,

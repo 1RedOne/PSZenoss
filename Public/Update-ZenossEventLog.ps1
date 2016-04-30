@@ -18,7 +18,7 @@ firstTime             : 2016-03-17 10:32:24
 device_uuid           : 4aca66ff-109c-4cf8-9391-ab2d2c4670eb
 eventClassKey         : WindowsServiceLog
 agent                 : zenpython
-dedupid               : cho3w5ap02.corpstage.contoso.com|sppsvc|/Status|WindowsService|5
+dedupid               : CH_IT-03.dev.contoso.com|sppsvc|/Status|WindowsService|5
 Location              : {}
 component_url         : /zport/dmd/goto?guid=7b9ec357-78d8-43a5-8e64-0eca1d391f20
 ownerid               : 

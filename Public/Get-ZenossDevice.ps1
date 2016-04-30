@@ -16,7 +16,7 @@ firstTime             : 2016-03-17 10:32:24
 device_uuid           : 4aca66ff-109c-4cf8-9391-ab2d2c4670eb
 eventClassKey         : WindowsServiceLog
 agent                 : zenpython
-dedupid               : cho3w5ap02.corpstage.contoso.com|sppsvc|/Status|WindowsService|5
+dedupid               : CH_IT-03.dev.contoso.com|sppsvc|/Status|WindowsService|5
 Location              : {}
 component_url         : /zport/dmd/goto?guid=7b9ec357-78d8-43a5-8e64-0eca1d391f20
 ownerid               : 
@@ -36,8 +36,8 @@ eventClassKey :
 component     : @{url=; text=; uid=; uuid=}
 summary       : Device is DOWN!
 eventState    : New
-device        : @{url=/zport/dmd/goto?guid=1f99f022-f0d3-4c75-90f2-a52fca708303; text=CHDTW1TST03.corpdev.contoso.com; uuid=1f99f022-f0d3-4c75-90f2-a52fca708303; 
-                uid=/zport/dmd/Devices/Server/Microsoft/Windows/DEV TEST/devices/CHDTW1TST03.corpdev.contoso.com}
+device        : @{url=/zport/dmd/goto?guid=1f99f022-f0d3-4c75-90f2-a52fca708303; text=CH_IT-03.dev.contoso.com; uuid=1f99f022-f0d3-4c75-90f2-a52fca708303; 
+                uid=/zport/dmd/Devices/Server/Microsoft/Windows/DEV TEST/devices/CH_IT-03.dev.contoso.com}
 eventClass    : @{text=/Status/WinRM/Ping; uid=/zport/dmd/Events/Status/WinRM/Ping}
 lastTime      : 2016-03-22 10:21:40
 message       : Device is DOWN!

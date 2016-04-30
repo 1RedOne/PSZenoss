@@ -44,7 +44,7 @@ Usage
 ####Get-ZenossEvent####
 
 
-    Get-ZenossEvent -DeviceName CHDTW1T
+    Get-ZenossEvent -DeviceName CH_IT-03
     count         : 4
     firstTime     : 2016-03-22 10:06:40
     severity      : 5
@@ -53,12 +53,12 @@ Usage
     component     : @{url=; text=; uid=; uuid=}
     summary       : Device is DOWN!
     eventState    : New
-    device        : @{url=/zport/dmd/goto?guid=1f99f022-f0d3-4c75-90f2-a52fca708303; text=CHDTW1TST03.corpdev.contoso.com; uuid=1f99f022-f0d3-4c75-90f2-a52fca708303; 
-    id=/zport/dmd/Devices/Server/Microsoft/Windows/DEV TEST/devices/CHDTW1TST03.corpdev.contoso.com}
+    device        : @{url=/zport/dmd/goto?guid=1f99f022-f0d3-4c75-90f2-a52fca708303; text=CH_IT-03.dev.contoso.com; uuid=1f99f022-f0d3-4c75-90f2-a52fca708303; 
+    id=/zport/dmd/Devices/Server/Microsoft/Windows/DEV TEST/devices/CH_IT-03.dev.contoso.com}
     eventClass    : @{text=/Status/WinRM/Ping; uid=/zport/dmd/Events/Status/WinRM/Ping}
     lastTime      : 2016-03-22 10:21:40
     message       : Device is DOWN!
-    DeviceName    : CHDTW1TST03.corpdev.contoso.com
+    DeviceName    : CH_IT-03.dev.contoso.com
 
  ... gets you a listing of all of the events for a particular device in reverse chronological order
 
@@ -72,7 +72,7 @@ Usage
 
 ####New-ZenossEvent####
 
-     New-ZenossEvent -Summary "Test new event from PowerShell" -component "Test Component" -severity 5 -device cho3w5ap02.corpstage.contoso.com
+     New-ZenossEvent -Summary "Test new event from PowerShell" -component "Test Component" -severity 5 -device CH_IT-03.dev.contoso.com
      Response: Created event, True
 
      evid                                                            response
