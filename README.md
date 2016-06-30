@@ -21,6 +21,11 @@ Usage
 
  Every cmdlet in this module takes a parameter of `-URL` which should be the base url of your Zenoss Instance, like so http://zenoss:8080.  If you'd like to use this value globally across all cmdlets, you can use a global variable of $global:url = "http://zenoss:8080", to automatically provide this value for all cmdlets.
 
+ Each cmdlet of this version of the module includes a hard coded user parameter, specified in the `Begin{}` script block of each function in the `\Public\` folder.
+ 
+###The first step to leveraging Zenoss from PowerShell###
+ ...connect to the Zenoss Web Console and create a new 'Manager' class of user.  Protect these credentials!  We recommend storing the credentials safely within the user protected storage.
+
  There are many more endpoints available, we've only made cmdlets for the following.
 
 | Cmdlet        | Released      |
